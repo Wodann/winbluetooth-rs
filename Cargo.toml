@@ -1,0 +1,20 @@
+[package]
+name = "winbluetooth"
+version = "0.1.0"
+authors = ["Remco Kuijper <remco.kuijper@gmail.com>"]
+license = "MIT/Apache-2.0"
+description = "Raw FFI bindings for Windows' bluetooth API."
+repository = "https://github.com/Wodann/winbluetooth-rs/"
+keywords = ["windows", "ffi", "bluetooth"]
+categories = ["external-ffi-bindings", "network-programming", "os::windows-apis"]
+readme = "README.md"
+include = ["Cargo.toml", "src/**/*.rs","README.md", "LICENSE-APACHE", "LICENSE-MIT"]
+edition = "2018"
+
+[features]
+debug = ["impl-debug"]
+impl-debug = []
+impl-default = []
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3.7", features = ["impl-default", "guiddef", "handleapi", "processthreadsapi", "winbase", "winioctl", "winerror", "winnt", "winsock2", "ws2def"] }
